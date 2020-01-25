@@ -13,6 +13,14 @@ export default class SignUp extends Component {
             gender: null
         }
         this.onChange = this.onChange.bind(this);
+        this.onSubmite = this.onSubmite.bind(this);
+    }
+
+    onSubmite(e) {
+        e.preventDefault()
+        axios.post('/api/signUp ', this.state)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
 
     }
 
@@ -30,23 +38,25 @@ export default class SignUp extends Component {
                 <h1>Create a New Account</h1>
                 <p>It’s quick and easy.</p>
                 <Form>
-                    <Form.Group controlId="NameUP">
-                        <Form.Control type="text" value={this.state.value} onChange={this.onChange} name="userName" placeholder="User Name" />
+                    <Form.Group controlId="nameUP">
+                        <Form.Control required size="lg" type="text" value={this.state.value} onChange={this.onChange} name="userName" placeholder="User Name" />
 
                     </Form.Group>
                     <Form.Group controlId="mailUP">
 
-                        <Form.Control type="email" value={this.state.value} onChange={this.onChange} name="email" placeholder="Email" />
+                        <Form.Control required size="lg" type="email" value={this.state.value} onChange={this.onChange} name="email" placeholder="Email" />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
                     </Form.Group>
-                    <Form.Group controlId="ameUP">
-                        <Form.Control type="password" value={this.state.value} onChange={this.onChange} name="password" placeholder="New Password" />
+                    <Form.Group controlId="passwordUP">
+                        <Form.Control required size="lg" type="password" value={this.state.value} onChange={this.onChange} name="password" placeholder="New Password" />
 
                     </Form.Group>
                     <Form.Group controlId="genderUP">
                         <Form.Check
+                            inline
+                            required
                             type="radio"
                             label="Male"
                             name="gender"
@@ -55,6 +65,8 @@ export default class SignUp extends Component {
                             onChange={this.onChange}
                         />
                         <Form.Check
+                            inline
+                            required
                             type="radio"
                             label="Female"
                             name="gender"
@@ -64,7 +76,7 @@ export default class SignUp extends Component {
                         />
 
                     </Form.Group>
-                    <Button>SignUp</Button>
+                    <Button onClick={this.onSubmite} type="submit">Sign up</Button>
                 </Form>
 
             </div>

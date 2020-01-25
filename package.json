@@ -7,21 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
     "server": "nodemon index.js",
-    "start": "node index.js",
-    "dev": "concurrently --kill-other-on-fail \"npm run server\" \"npm run client\""
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "knex": "^0.20.8",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^7.17.1"
   },
   "devDependencies": {
-    "concurrently": "^5.0.2",
     "nodemon": "^2.0.2"
   }
 }

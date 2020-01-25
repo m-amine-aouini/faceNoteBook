@@ -1,11 +1,11 @@
 import React from 'react';
-import SignUp from './components/auth/signup.js'
+import Auth from './components/auth/auth.js'
 
 
 function App() {
   return (
     <div className="App">
-      <SignUp></SignUp>
+      <Auth></Auth>
     </div>
   );
 }

@@ -7,4 +7,8 @@ const pool = new Pool({
     port: 5432,
 });
 
+pool.connect()
+    .then(() => console.log('database is connected'))
+    .catch((e) => console.log('naah: ' + e))
+
 module.exports.pool = pool;
