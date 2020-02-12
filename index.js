@@ -10,7 +10,7 @@ app.use(bodyParser.json({ type: 'application/json' }));
 require('dotenv').config();
 app.use(cors());
 app.use('/', (req, res) => {
-    res.send('hello')
+    res.send('./client/public/index.html')
 })
 
 require('./routes/userRoutes')(app);
