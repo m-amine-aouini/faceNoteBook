@@ -8,10 +8,11 @@ const socket = require('socket.io');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: 'application/json' }));
 require('dotenv').config();
+
 app.use(cors());
-app.use('/', (req, res) => {
-    res.send('./client/public/index.html')
-})
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 require('./routes/userRoutes')(app);
 require('./routes/messagesRoutes')(app);
