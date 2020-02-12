@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -12,15 +11,16 @@ require('dotenv').config();
 
 app.use(cors());
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
 require('./routes/userRoutes')(app);
 require('./routes/messagesRoutes')(app);
 require('./routes/postsRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
+    const path = require('path');
     app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/build/index.html'));
+    });
 
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
