@@ -9,6 +9,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: 'application/json' }));
 require('dotenv').config();
 app.use(cors());
+app.use('/', (req, res) => {
+    res.send('hello')
+})
 
 require('./routes/userRoutes')(app);
 require('./routes/messagesRoutes')(app);
