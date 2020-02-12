@@ -7,7 +7,7 @@ const socket = require('socket.io');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: 'application/json' }));
-
+app.get('/cool', (req, res) => res.send(cool()));
 require('dotenv').config();
 app.use(cors());
 
