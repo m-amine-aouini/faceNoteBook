@@ -23,7 +23,6 @@ export default class SignIn extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(this.state);
   }
 
   login() {
@@ -39,7 +38,6 @@ export default class SignIn extends Component {
           localStorage.setItem('token', res.data.token)
 
         }
-        console.log(res);
 
       })
       .then(() => this.login())
