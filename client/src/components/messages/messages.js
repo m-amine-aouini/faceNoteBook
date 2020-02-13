@@ -28,7 +28,7 @@ export default class Messages extends Component {
         const { username } = jwtDecode(localStorage.getItem('token'))
         const { message, receiver } = this.state;
 
-        axios.post('/api/messages', { message, receiver, token: localStorage.getItem('token') })
+        axios.post('http://localhost:3001/api/messages', { message, receiver, token: localStorage.getItem('token') })
             .then(() => {
                 this.socket.emit('message', {
                     sender: username,
@@ -50,7 +50,7 @@ export default class Messages extends Component {
         const { username } = jwtDecode(localStorage.getItem('token'))
         console.log(username)
 
-        axios.get(`/api/getContacts/${localStorage.getItem('token')}`)
+        axios.get(`http://localhost:3001/api/getContacts/${localStorage.getItem('token')}`)
             .then(res => {
                 let contacts = {};
 
@@ -77,7 +77,7 @@ export default class Messages extends Component {
                 const friend = this.state.contacts[this.state.contacts.length - 1];
                 this.setState({ receiver: friend })
 
-                axios.get(`/api/retrieve/${username}/${friend}`)
+                axios.get(`http://localhost:3001/api/retrieve/${username}/${friend}`)
                     .then(res => {
                         console.log(res.data)
                         let arr = [];
@@ -107,7 +107,7 @@ export default class Messages extends Component {
         this.setState({ receiver: e.target.name })
         const { username } = jwtDecode(localStorage.getItem('token'))
 
-        axios.get(`/api/retrieve/${username}/${e.target.name}`)
+        axios.get(`http://localhost:3001/api/retrieve/${username}/${e.target.name}`)
             .then(res => {
                 console.log(res.data)
                 let arr = [];
