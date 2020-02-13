@@ -33,7 +33,7 @@ export default class Posts extends Component {
 
     componentDidMount() {
         const { username } = jwtDecode(localStorage.getItem('token'));
-        axios.get(`http://localhost:3001/api/getPosts/${username}`)
+        axios.get(`/api/getPosts/${username}`)
             .then(res => {
                 console.log(res)
                 this.setState({ friendsPosts: res.data })
