@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { Pool, Client } = require('pg');
 const socket = require('socket.io');
+var cool = require('cool-ascii-faces');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: 'application/json' }));
@@ -18,6 +19,9 @@ require('./routes/postsRoutes')(app);
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
+app.get('/', (req, res) => {
+    res.send(cool())
+})
 
 if (process.env.NODE_ENV === 'production') {
     const path = require('path');
