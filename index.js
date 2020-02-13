@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -8,7 +9,6 @@ const socket = require('socket.io');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ type: 'application/json' }));
-require('dotenv').config();
 
 app.use(cors());
 
@@ -39,6 +39,6 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        console.log('client disconnect...', socket.id)
+        console.log('client disconnected', socket.id)
     })
 }) 
