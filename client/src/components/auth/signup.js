@@ -20,9 +20,9 @@ export default class SignUp extends Component {
 
     onSubmite(e) {
         e.preventDefault()
-        axios.post('/api/signUp ', this.state)
+        axios.post('https://facenotebook.herokuapp.com/api/signUp ', this.state)
             .then(res => {
-                console.log(res)
+
                 this.setState({ errAlert: false })
                 this.setState({ successSignUp: true })
 
