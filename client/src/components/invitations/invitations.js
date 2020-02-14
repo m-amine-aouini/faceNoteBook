@@ -18,7 +18,7 @@ export default class Invitations extends Component {
     }
 
     componentDidMount() {
-        axios.get(`/api/invites/${localStorage.getItem('token')}`)
+        axios.get(`http://localhost:3001/api/invites/${localStorage.getItem('token')}`)
             .then(res => this.setState({ contacts: res.data }))
             .then(() => console.log(this.state))
             .catch(err => console.log(err))
