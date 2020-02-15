@@ -32,7 +32,7 @@ export default class SignIn extends Component {
   onSubmite(e) {
     e.preventDefault();
 
-    axios.post('http://localhost:3001/api/userIn', this.state)
+    axios.post('/api/userIn', this.state)
       .then((res) => {
         if (res.data.red) {
           localStorage.setItem('token', res.data.token)

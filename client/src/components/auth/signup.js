@@ -28,6 +28,7 @@ export default class SignUp extends Component {
             })
             .catch(err => {
                 console.log(err)
+                this.setState({ successSignUp: false })
                 this.setState({ errAlert: true })
             })
 
