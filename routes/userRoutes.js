@@ -10,7 +10,7 @@ module.exports = (app) => {
         pool.query(`INSERT INTO users (userName, email, password, gender, followers) VALUES ( $1, $2, $3,$4, $5)`, [req.body.userName, req.body.email, hashedPass, req.body.gender, 0])
             .then(() => res.status(200).send('Your account is successfully inserted !!'))
 
-            .catch((err) => res.status(400).send(err))
+            .catch((err) => res.send(err))
 
     })
 
