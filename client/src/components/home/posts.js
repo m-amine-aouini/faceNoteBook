@@ -42,6 +42,13 @@ export default class Posts extends Component {
     }
 
     render() {
+        let randomPlace = {
+            marginLeft: document.body.clientWidth * Math.random() - 100 + 'px',
+            marginTop: document.body.clientHeight * Math.random() + 'px',
+            marginRight: (document.body.clientWidth * Math.random()) + 'px',
+            marginDown: document.body.clientHeight * Math.random() + 'px'
+        }
+
         return (
             <div>
                 <Row>
@@ -60,49 +67,51 @@ export default class Posts extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Accordion>
-                        {
-                            this.state.friendsPosts.map((friend, i) => {
-                                return (
-                                    <Card>
-                                        <Card.Header>
-                                            <Accordion.Toggle as={Button} eventKey={i}>
-                                                {friend[0].poster}
-                                            </Accordion.Toggle>
-                                        </Card.Header>
-                                        <Accordion.Collapse eventKey={i}>
-                                            <Card.Body>
-                                                {
-                                                    friend.map((post, i) => {
-                                                        if (i === 0) {
+                    {
+                        this.state.friendsPosts.map((friend, i) => {
+                            return (
+                                <div style={randomPlace}>
+                                    <Accordion>
+                                        <Card>
+                                            <Card.Header>
+                                                <Accordion.Toggle as={Button} eventKey={i}>
+                                                    {friend[0].poster}
+                                                </Accordion.Toggle>
+                                            </Card.Header>
+                                            <Accordion.Collapse eventKey={i}>
+                                                <Card.Body>
+                                                    {
+                                                        friend.map((post, i) => {
+                                                            if (i === 0) {
+                                                                return (
+                                                                    <div>
+                                                                        <p>
+                                                                            {post.post}
+
+                                                                        </p>
+                                                                    </div>
+                                                                )
+                                                            }
                                                             return (
                                                                 <div>
+                                                                    <hr></hr>
                                                                     <p>
                                                                         {post.post}
 
                                                                     </p>
                                                                 </div>
+
                                                             )
-                                                        }
-                                                        return (
-                                                            <div>
-                                                                <hr></hr>
-                                                                <p>
-                                                                    {post.post}
-
-                                                                </p>
-                                                            </div>
-
-                                                        )
-                                                    })
-                                                }
-                                            </Card.Body>
-                                        </Accordion.Collapse>
-                                    </Card>
-                                )
-                            })
-                        }
-                    </Accordion>
+                                                        })
+                                                    }
+                                                </Card.Body>
+                                            </Accordion.Collapse>
+                                        </Card>
+                                    </Accordion>
+                                </div>
+                            )
+                        })
+                    }
                 </Row>
             </div>
         )
