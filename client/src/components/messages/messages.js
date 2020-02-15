@@ -20,7 +20,8 @@ export default class Messages extends Component {
         this.getMessages = this.getMessages.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onSend = this.onSend.bind(this);
-        this.socket = io('localhost:3001');
+        // this.socket = io('localhost:3001');
+        this.socket = io('ec2-54-195-247-108.eu-west-1.compute.amazonaws.com');
     }
 
     onSend(e) {
