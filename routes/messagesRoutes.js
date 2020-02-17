@@ -15,7 +15,10 @@ module.exports = (app) => {
         const { username } = jwtDecode(req.params.token)
 
         pool.query(`SELECT poster, receiver FROM messages WHERE poster = $1 OR receiver = $1`, [username])
-            .then(res => resp.send({ results: res.rows }))
+            .then(res => {
+                console.log(res)
+                resp.send({ results: res.rows })
+            })
             .catch(err => console.log(err))
     })
 
