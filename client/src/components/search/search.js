@@ -167,7 +167,10 @@ export default class Search extends Component {
         const { username } = jwtDecode(localStorage.getItem('token'));
 
         axios.put(`/api/deleteFriend/${name}/${username}`)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                document.getElementById(name).innerHTML = `<div></div>`
+            })
             .catch(err => console.log(err))
     }
 
