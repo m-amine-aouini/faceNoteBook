@@ -150,7 +150,6 @@ export default class Search extends Component {
         const { username } = jwtDecode(localStorage.getItem('token'));
         const receiver = e.target.name;
 
-        console.log('request')
         axios.post('/api/friendsRequests', { username, receiver })
             .then(res => {
                 console.log(receiver);
