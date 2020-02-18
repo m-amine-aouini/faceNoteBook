@@ -21,7 +21,7 @@ export default class Messages extends Component {
         this.onChange = this.onChange.bind(this);
         this.onSend = this.onSend.bind(this);
         // this.socket = io('localhost:3001');
-        this.socket = io('ec2-54-195-247-108.eu-west-1.compute.amazonaws.com');
+        this.socket = io('ec2-54-195-247-108.eu-west-1.compute.amazonaws.com:5432');
     }
 
     onSend(e) {
@@ -49,7 +49,7 @@ export default class Messages extends Component {
 
     componentDidMount() {
         const { username } = jwtDecode(localStorage.getItem('token'))
-        console.log(username)
+        // console.log(username)
 
         axios.get(`/api/getContacts/${localStorage.getItem('token')}`)
             .then(res => {
@@ -80,7 +80,7 @@ export default class Messages extends Component {
 
                 axios.get(`/api/retrieve/${username}/${friend}`)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         let arr = [];
                         if (res.data.length >= 7) {
 
@@ -95,7 +95,7 @@ export default class Messages extends Component {
                             }
                         }
                         this.setState({ messages: arr })
-                        console.log(this.state.messages)
+                        // console.log(this.state.messages)
 
                     })
                     .catch(err => console.log(err))

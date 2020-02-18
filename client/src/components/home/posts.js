@@ -26,7 +26,7 @@ export default class Posts extends Component {
         const { username } = jwtDecode(localStorage.getItem('token'));
 
         axios.post('/api/post', { post, username })
-            .then(res => console.log(res))
+            .then(res => res)
             .catch(err => console.log(err))
 
     }
@@ -35,7 +35,7 @@ export default class Posts extends Component {
         const { username } = jwtDecode(localStorage.getItem('token'));
         axios.get(`/api/getPosts/${username}`)
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 this.setState({ friendsPosts: res.data })
             })
             .catch(err => console.log(err))

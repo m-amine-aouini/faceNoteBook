@@ -92,7 +92,7 @@ export default class Search extends Component {
             .then(res => {
 
                 const { username } = jwtDecode(localStorage.getItem('token'));
-                console.log(res.data)
+                // console.log(res.data)
                 let result = [];
                 if (res.data.users.length < 9) {
                     for (let i = 0; i < res.data.users.length; i++) {
@@ -126,7 +126,7 @@ export default class Search extends Component {
                     }
                 }
                 this.setState({ results: result })
-                console.log(this.state.results)
+                // console.log(this.state.results)
 
             })
             .catch(err => console.log(err))
@@ -136,7 +136,7 @@ export default class Search extends Component {
         e.preventDefault();
         const { username } = jwtDecode(localStorage.getItem('token'));
         const contact = e.target.name
-        console.log('delete')
+        // console.log('delete')
         axios.put(`/api/deleteRequest/${username}/${contact}`)
             .then(res => {
                 document.getElementById(contact).innerHTML = `<div></div>`
