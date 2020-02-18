@@ -197,7 +197,7 @@ export default class Search extends Component {
 
                                             <Button onClick={(e) => {
                                                 return this.state[user.username].friends ? this.onDeleteFriend(e) : this.state[e.target.name].request ? this.onDeleteRequest(e) : this.onFriendRequest(e)
-                                            }} type="submit" name={user.username}>{this.state[user.username].friends ? 'Delete Friend' : this.state[user.username].request ? 'Delete Request' : 'Add Friend'}</Button>
+                                            }} type="submit" name={user.username}>{this.state[user.username].friends ? 'Delete Follow' : this.state[user.username].request ? 'Delete Request' : 'Add Follow'}</Button>
                                         </Form>
                                     </Col>
                                     <Col>
