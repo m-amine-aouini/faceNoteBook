@@ -1,5 +1,6 @@
 $(function () {
-    let socket = io.connect('ec2-54-195-247-108.eu-west-1.compute.amazonaws.com:5432/');
+    let socket = io.connect('https://facenotebook.herokuapp.com/');
+    // let socket = io.connect('localhost:3001')
 
     socket.on('message', (data) => {
         console.log('message')
