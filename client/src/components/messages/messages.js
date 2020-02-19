@@ -21,7 +21,7 @@ export default class Messages extends Component {
         this.onChange = this.onChange.bind(this);
         this.onSend = this.onSend.bind(this);
         this.socket = io('https://facenotebook.herokuapp.com/');
-        // this.socket = io('ec2-54-195-247-108.eu-west-1.compute.amazonaws.com:5432');
+        // let socket = io.connect('localhost:3001');
     }
 
     onSend(e) {
