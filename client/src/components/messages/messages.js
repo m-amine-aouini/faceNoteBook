@@ -20,7 +20,7 @@ export default class Messages extends Component {
         this.getMessages = this.getMessages.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onSend = this.onSend.bind(this);
-        this.socket = io('https://facenotebook.herokuapp.com/');
+        this.socket = io('facenotebook.herokuapp.com');
         // let socket = io.connect('localhost:3001');
     }
 

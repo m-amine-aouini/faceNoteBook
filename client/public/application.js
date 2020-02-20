@@ -1,5 +1,5 @@
 $(function () {
-    let socket = io.connect('https://facenotebook.herokuapp.com/');
+    let socket = io.connect('facenotebook.herokuapp.com');
     // let socket = io.connect('localhost:3001');
 
     socket.on('message', (data) => {
